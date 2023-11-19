@@ -27,4 +27,5 @@ export class SearchService {
       map(res=>res.query.search)
     )
   }
+
 }

@@ -9,9 +9,10 @@ import { SearchComponent } from './pages/search/search.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { MaterialModule } from './modules/material/material.module';
+import { AuthInterceptorProvider } from './auth/interceptors/cookies.interceptor';
 
 //Client module
-import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,11 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule
+    MaterialModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    AuthInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })

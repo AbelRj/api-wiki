@@ -1,3 +1,5 @@
 export const environment = {
-    api:'https://es.wikipedia.org/w/api.php'
+    production: false,
+    api:'https://es.wikipedia.org/w/api.php',
+    baseUrl:'http://localhost:3000'
 };

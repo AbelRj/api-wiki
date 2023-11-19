@@ -8,4 +8,6 @@ import { ArticlesI } from '../../interfaces/wiki';
 })
 export class ArticlesComponent {
 @Input() article! : ArticlesI;
+
 }
+

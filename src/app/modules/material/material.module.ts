@@ -12,8 +12,11 @@ import {MatCardModule} from '@angular/material/card';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 const MATERIAL_MODULES = [
+  HttpClientModule,
   FormsModule,
   ReactiveFormsModule,
 MatToolbarModule,
