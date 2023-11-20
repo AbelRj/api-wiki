@@ -1,0 +1,53 @@
+<ng-container>
+    <mat-dialog-content>
+        <form [formGroup]="form">
+            <mat-form-field class="">
+                <mat-label>Product Name</mat-label>
+                <input matInput
+                formControlName="name"
+                placeholder="Product Name"
+                type="text"
+                required=""
+                [class]="isValidField('name')"
+                >
+                <mat-error *ngIf="form.get('name')?.errors">
+                    Prduct Name is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="">
+                <mat-label>Precio</mat-label>
+                <input matInput
+                formControlName="price"
+                placeholder="123.45"
+                type="number"
+                required=""
+                [class]="isValidField('price')"
+                >
+                <mat-error *ngIf="form.get('price')?.errors">
+                    Price is required
+                </mat-error>
+            </mat-form-field>
+            <mat-selection-list #categories 
+            name="categories"
+            id="categories"
+            formControlName="categories"
+            required="">
+            <mat-label>Categories</mat-label>
+            <mat-list-option [value]="items.id" *ngFor="let items of category">
+                {{items.name}}
+            </mat-list-option>
+            <mat-error *ngIf="form.get('categories')?.errors">
+                Category is required
+            </mat-error>
+            </mat-selection-list>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="close()">Close</button>
+        <button mat-raised-button type="submit" color="primary"
+        [mat-dialog-close]="form.value"
+        [disabled]="form.invalid"
+        >Save</button>
+    </mat-dialog-actions>
+</ng-container>

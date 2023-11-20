@@ -9,6 +9,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 
@@ -26,7 +29,10 @@ MatIconModule,
 MatInputModule,
 MatFormFieldModule,
 MatListModule,
-MatCardModule
+MatCardModule,
+MatPaginatorModule,
+MatTableModule,
+MatDialogModule
 ]
 
 
