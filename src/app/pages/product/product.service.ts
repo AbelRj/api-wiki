@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CategoryI, ProductI } from './product';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { UserResponseI } from '../../auth/interfaces/user';
 
@@ -20,12 +20,17 @@ export class ProductService {
     return this.product$;
   }
 
-  newProduct(product:ProductI):Observable<UserResponseI | void>{
-    return this.http.post<UserResponseI | void>(`${environment.baseUrl}/product`,product).pipe(
-      map((res:UserResponseI)=>{
-        return res;
-      })
-    );
+  newProduct(product: ProductI): Observable<UserResponseI | void> {
+    return this.http.post<UserResponseI>(`${environment.baseUrl}/product`, product)
+      .pipe(
+        map((res: UserResponseI) => {
+          return res;
+        }),
+        catchError((error) => {
+          console.error('Error al agregar el producto:', error);
+          return of(); // Devolver un observable vacío en caso de error
+        })
+      );
   }
   getById(id:string):Observable<ProductI | void>{
     return this.http.get<ProductI>(`${environment.baseUrl}/product/${id}`);

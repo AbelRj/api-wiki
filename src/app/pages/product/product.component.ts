@@ -57,7 +57,6 @@ export class ProductComponent implements OnInit, OnDestroy, AfterViewInit {
     this.productSvc.updateProduct(id,product).subscribe((res)=>{
      if(res){
       Swal.fire({
-        position: 'top-end',
         icon: 'success',
         title: 'Producto actualizado',
         showConfirmButton: false,
@@ -120,7 +119,6 @@ export class ProductComponent implements OnInit, OnDestroy, AfterViewInit {
       this.productSvc.newProduct(product).subscribe(res =>{
      if(res){
         Swal.fire({
-          position: 'top-end',
           icon: 'success',
           title: 'Producto creado',
           showConfirmButton: false,

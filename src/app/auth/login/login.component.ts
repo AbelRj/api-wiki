@@ -41,7 +41,10 @@ export class LoginComponent implements OnInit{
       user=>{
         console.log(user);
         if(user){
-          this.router.navigate(['/home']);
+          this.router.navigate(['/product']);
+        }
+        else{
+          this.router.navigate(['/login']);
         }
       }
     )

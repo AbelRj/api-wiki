@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule), canActivate: [checkLoginGuard] },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'product', loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule) },
+  { path: 'product', loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule),canActivate: [checkLoginGuard] },
   { path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
