@@ -28,26 +28,26 @@ export class CookiesInterceptor implements HttpInterceptor {
   handlerError(error: HttpErrorResponse) {
     switch (error.status) {
       case 400:
-        alert('No autorizado');
-        break;
-      case 401:
-        console.log('No autorizado');
-        break;
-      case 403:
-        console.log('No autorizado');
-        break;
-      case 404:
-        console.log('No autorizado');
-        break;
-      case 452:
-        alert('User o password incorrecto');
-        break;
-      case 500:
-        console.log('No autorizado');
-        break;
-      default:
-        console.log('default');
-        break;
+          alert('Contraseña incorrecta');
+          break;
+        case 401:
+          alert('Credenciales no válidas');
+          break;
+        case 403:
+          alert('Acceso no autorizado');
+          break;
+        case 404:
+          alert('Usuario no encontrado');
+          break;
+        case 452:
+          alert('Usuario o contraseña incorrectos');
+          break;
+        case 500:
+          alert('Error interno del servidor');
+          break;
+        default:
+          alert('Error desconocido');
+          break;
     }
     return throwError(error);
   }
